@@ -1,0 +1,22 @@
+{
+    "users": [
+        {
+            "name": "jonathan",
+            "id": "1",
+            "username": "jonaanw",
+            "posts": "3"
+        },
+        {
+            "name": "joseph",
+            "id": "2",
+            "username": "jossswn",
+            "posts": "0"
+        },
+        {
+            "name": "nelson",
+            "id": "3",
+            "username": "nelss",
+            "posts": "2"
+        }
+    ]
+}
