@@ -3,13 +3,13 @@ import cart
 
 class Store:
     def __init__(self):
+        self.cart = cart.Cart()
         self.store_products = [
             product.Product("Pizza XL", 40, 20),
             product.Product("Pizza LG", 30, 20),
             product.Product("Pizza MD", 20, 20),
             product.Product("Pizza SM", 10, 20),
         ]
-        self.cart = cart.Cart()
 
     # store actions
     def init(self):
@@ -36,23 +36,31 @@ class Store:
                 break
             else:
                 print("Opción no válida. Intenta de nuevo.")
-
+                
     def show_products(self):
-        for i, product in enumerate(self.store_products(), start=1):
+        print("Products avialable:")
+        for i, product in enumerate(self.store_products, start=1):
             print(f"{i}. {product}")
-        
-    def add_product_to_cart(self):
+
+    def add_to_cart(self):
         self.show_products()
-        select = int(input("select your number product:"))
-        if select <= 0 or self.store_products.__len__():
-            print("invalid option")
+        select = int(input("select number of your product:")) - 1
+        if(select < 0 or select >= len(self.store_products)):
+            print("Invalid selection")
             return
-        else:
-            select_product = self.store_products[select]
-            cuantity = int(input("Select cuantity of product:"))
-            self.cart.add_product_cart(select_product, cuantity)
+
+        select_product = self.store_products[select]
+        cuantity = int(input(f"Select amount of {select_product.name}:"))
+        self.cart.add_product_cart(select_product, cuantity)
 
     def finish_purchase(self):
-        if not self.cart.my_products():
-            print("error. cart empty")
-        else:
+        if not self.cart.my_products:
+            print("Your cart is empthy")
+            return
+        
+        total = self.cart.calc_total()
+        print(f"Total of your purchase is {total}")
+        self.cart.empty_cart()
+
+store = Store()
+store.init()
