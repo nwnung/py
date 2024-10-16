@@ -2,13 +2,13 @@ import string
 import random
 
 class PasswordGenerator:
-    def __init__(self, length=12, use_uppercase=True, use_numbers=True, use_special_chars=True):
+    def __init__(self,length=12,use_numbers=True,use_special_chars=True,use_uppercase=True):
         self.length = length
-        self.use_uppercase = use_uppercase
         self.use_numbers = use_numbers
         self.use_special_chars = use_special_chars
-    
-    def configure(self, length=None, use_uppercase=None, use_numbers=None, use_special_chars=None):
+        self.use_uppercase = use_uppercase
+
+    def configure(self, length, use_uppercase, use_numbers, use_special_chars):
         if length is not None:
             self.length = length
         if use_uppercase is not None:
@@ -17,34 +17,34 @@ class PasswordGenerator:
             self.use_numbers = use_numbers
         if use_special_chars is not None:
             self.use_special_chars = use_special_chars
-    
+
     def generate(self):
-        # Se encarga de generar la contraseña aleatoria en base a las configuraciones establecidas.
-        character_pool = string.ascii_lowercase
+        pool = string.ascii_lowercase
 
-        if self.use_uppercase:
-            character_pool += string.ascii_uppercase
         if self.use_numbers:
-            character_pool += string.digits
+            pool += string.digits
+        if self.use_uppercase:
+            pool += string.ascii_uppercase
         if self.use_special_chars:
-            character_pool += string.punctuation
+            pool += string.punctuation
 
-        password = ''.join(random.choices(character_pool, k=self.length))
-        
+        password = ''.join(random.choices(pool,k=self.length))
         return password
-    
-    def run(self):
-        # para interactuar con el usuario y llamar a los métodos configure() y generate() en el orden adecuado.
-        print("Config your password:")
-        self.length = int(input("Longitud de tu contraseña:"))
-        self.use_uppercase = input("Desea incluir mayusculas? (s/n):").lower() == 's'
-        self.use_numbers = input("Desea incluir numeros? (s/n):").lower() == 's'
-        self.use_special_chars = input("Desea incluir caracteres especiales? (s/n)").lower() == 's'
+
+    def init(self):
+        length = int(input('Selecciona cuantos caracteres: '))
+        numbers = input('Deseas numeros? ').lower() == 's'
+        upper = input('Deseas mayusculas? ').lower() == 's'
+        special_chars = input('Deseas caracteres especiales?').lower() == 's'
+
+        self.configure(length=length,use_uppercase=upper,use_numbers=numbers,use_special_chars=special_chars)
 
         password = self.generate()
-        print(f"Contraseña generada: {password}")
+        print(f'Contraseña generada {password}')
 
 
-if __name__ == "__main__":
-    generator = PasswordGenerator()
-    generator.run()
+jona = 'nwnung'
+
+if jona == 'nwnung':
+    passw = PasswordGenerator()
+    passw.init()
