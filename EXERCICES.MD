@@ -5,10 +5,10 @@
   - Usa funciones para cada operación matemática (suma, resta, multiplicación, división).
   - Implementa manejo de errores (por ejemplo, división por cero). -->
 
-- gestor de tareas
+<!-- - gestor de tareas
 
   - Usa estructuras de datos como listas o diccionarios para almacenar tareas.
-  - Permite agregar, eliminar y listar tareas.
+  - Permite agregar, eliminar y listar tareas. -->
 
 - simulador de tienda
 

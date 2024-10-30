@@ -4,7 +4,7 @@ class Task():
         self.description = description
 
     def __str__(self) -> str:
-        return f'Name: {self.name} - Description: {self.description} - Completed?: {self.completed}'
+        return f'Name: {self.name} - Description: {self.description}'
 
 class TaskGenerator():
     def __init__(self) -> None:
