@@ -10,11 +10,11 @@
   - Usa estructuras de datos como listas o diccionarios para almacenar tareas.
   - Permite agregar, eliminar y listar tareas. -->
 
-- simulador de tienda
+<!-- - simulador de tienda
 
   - Crea clases para representar productos y la lógica de una tienda.
   - Usa POO para gestionar el inventario, realizar compras y calcular el total.
-  - Usa módulos para organizar el código.
+  - Usa módulos para organizar el código. -->
 
 - generador de constraseñas
 

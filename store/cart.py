@@ -40,7 +40,8 @@ class Cart:
 
     def calc_total(self):
         total = sum(item['product'].price * item['amount'] for item in self.my_products)
-        print(f'Total: ${total}')
+        round(total, 2)
         return total
     
-    # def finally_purchase(self):
+    def empty_cart(self):
+        self.my_products = []

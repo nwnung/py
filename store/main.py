@@ -24,6 +24,12 @@ class Store:
     def my_products(self):
         self.cart.show_cart()
 
+    def finally_purchase(self):
+        total = self.cart.calc_total()
+        print(f'Total amount is: ${total:.2f}')
+        self.cart.empty_cart()
+        print('Se vacio tu carrito')
+
     def init(self):
         while True:
             print('\nWelcome to store')
@@ -31,7 +37,7 @@ class Store:
             print('2. Delete product')
             print('3. Show products')
             print('4. Show your products')
-            # print('5. Finally purchase')
+            print('5. Finally purchase')
             print('6. Exit')
 
             select = int(input('Select a valid number: '))
@@ -52,8 +58,8 @@ class Store:
                 self.show_products()
             elif select == 4:
                 self.my_products()
-            # elif select == 5:
-            #     self.cart.finally_purchase()
+            elif select == 5:
+                self.finally_purchase()
             elif select == 6:
                 print('Thanks!')
                 break
